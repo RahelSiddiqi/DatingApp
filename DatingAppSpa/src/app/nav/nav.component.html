@@ -1,10 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-  </button>
-  <a class="navbar-brand" href="#">Dating App</a>
+  <a class="navbar-brand text-white display-5 font-weight-bold text-serif ml-5" href="#">Dating App</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home</a>
       </li>
@@ -12,20 +10,18 @@
         <a class="nav-link" href="#">Link</a>
       </li>
     </ul>
-    <div *ngIf="loggedIn()">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown">Welcome User</a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+    <div *ngIf="loggedIn()" class="dropdown" dropdown>
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" dropdownToggle style="cursor: pointer;">Welcome {{ authService.decodedToken?.unique_name | titlecase }}</a>
+      <div class="dropdown-menu mt-2" *dropdownMenu>
+        <a class="dropdown-item" style="cursor: pointer;"><i class="fa fa-user"></i> Edit Profile</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
+        <a class="dropdown-item" (click)="logOut()" style="cursor: pointer;"><i class="fa fa-lock"></i> Log Out</a>
       </div>
     </div>
-    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+  </div>
+    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0 mr-3" (ngSubmit)="login()">
       <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" [(ngModel)]="model.username">
       <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password" [(ngModel)]="model.password">
-      <button [disabled]="!loginForm.valid" class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Login</button>
+      <button [disabled]="!loginForm.valid" class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
     </form>
-  </div>
 </nav>
