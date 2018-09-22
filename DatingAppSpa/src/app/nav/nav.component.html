@@ -2,12 +2,15 @@
   <a class="navbar-brand text-white display-5 font-weight-bold text-serif ml-5" href="#">Dating App</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto mt-2 mt-lg-0" >
+        <li class="nav-item"  routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/members']">Matches</a>
+        </li>
+      <li class="nav-item"  routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/lists']">Lists</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+      <li class="nav-item"  routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/messages']">Messages</a>
       </li>
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
