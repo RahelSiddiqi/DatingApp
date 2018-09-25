@@ -16,7 +16,7 @@
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" dropdownToggle style="cursor: pointer;">Welcome {{ authService.decodedToken?.unique_name | titlecase }}</a>
       <div class="dropdown-menu mt-2" *dropdownMenu>
-        <a class="dropdown-item" style="cursor: pointer;"><i class="fa fa-user"></i> Edit Profile</a>
+        <a class="dropdown-item" style="cursor: pointer;" [routerLink]="['/member/edit']" ><i class="fa fa-user"></i> Edit Profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logOut()" style="cursor: pointer;"><i class="fa fa-lock"></i> Log Out</a>
       </div>
