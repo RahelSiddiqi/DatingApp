@@ -32,8 +32,8 @@ namespace DatingApp.Controllers
 
             Account acc = new Account(
                 this.cloudinaryConfig.Value.CloudName,
-                this.cloudinaryConfig.Value.CloudApiKey,
-                this.cloudinaryConfig.Value.CloudApiSecret
+                this.cloudinaryConfig.Value.ApiKey,
+                this.cloudinaryConfig.Value.ApiSecret
             );
 
             this.cloudinary = new Cloudinary(acc);

@@ -56,9 +56,8 @@
                   </div>
               </form>
             </tab>
-            <tab heading="Interests">
-                <h4>Interested In</h4>
-                <p>{{user?.interests}}</p>
+            <tab heading="Edit Photo">
+               <app-photo-editor [photos]="user.photos" (getProfilePhotoChange)="updateMainPhoto($event)"></app-photo-editor>
             </tab>
             </tabset>
         <div>
