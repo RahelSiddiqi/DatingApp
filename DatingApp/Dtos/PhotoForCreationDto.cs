@@ -7,13 +7,13 @@ namespace DatingApp.Dtos
     {
         public string Url { get; set; }
         public IFormFile File { get; set; }
-        public string Descriotion { get; set; }
-        public DateTime DateAdded { get; set; }
+        public string Caption { get; set; }
+        public DateTime UploadedAt { get; set; }
         public string PublicId { get; set; }
 
         public PhotoForCreationDto()
         {
-            DateAdded = DateTime.Now;
+            UploadedAt = DateTime.Now;
         }
     }
 }
